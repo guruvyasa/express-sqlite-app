@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Start Here
+    <form action="/addStudent" method="post">
+    <div class="form-control">
+        <input type="text" name="name" placeholder="student name">
+    </div>
+    <div class="form-control">
+        <input type="text" name="phone" placeholder="student phone">
+    </div>
+    <button>Submit</button>
+    </form>
+    <table>
+        <thead>
+            <th>
+                <td>Name</td>
+                <td>Phone</td>
+            </th>
+        </thead>
+        <tbody>
+            <% if(locals.students) {%>
+                <% for (let student of students) {%>
+                    <tr>
+                        <td><%= student.name %></td>
+                        <td><%= student.phone %></td>
+                    </tr>
+                <%}%>
+            <% } %>            
+        </tbody>
+    </table>
+        
+    <script>
+        <% if(locals.msg) {%>
+            alert("<%= msg %>")
+        <% } %>
+    </script>
+</body>
+</html>
